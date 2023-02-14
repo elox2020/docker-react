@@ -14,12 +14,14 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile.dev -t docker-react
-  
-  test-code:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
     - name: Test the Docker image
       run: docker run -e CI=true docker-react npm run test
+  
+  # test-code:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Test the Docker image
+  #     run: docker run -e CI=true docker-react npm run test
         
