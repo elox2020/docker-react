@@ -16,6 +16,7 @@ jobs:
       run: docker build . --file Dockerfile.dev -t elox/docker-react
   
   test-code:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
